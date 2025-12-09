@@ -1,12 +1,13 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
+from unfold.admin import ModelAdmin
 from django.utils.translation import gettext_lazy as _
 
 from .models import User
 
 
 @admin.register(User)
-class CustomUserAdmin(UserAdmin):
+class CustomUserAdmin(UserAdmin, ModelAdmin):
     list_display = ("id", "email", "created", "modified")
     list_filter = ("is_active", "is_staff", "groups")
     search_fields = ("email",)
