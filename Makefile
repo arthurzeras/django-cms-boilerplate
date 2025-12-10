@@ -63,3 +63,11 @@ docker_update_schema:
 
 docker_createsuperuser:
 	docker compose run --rm backend python manage.py createsuperuser
+
+docker_precommit_setup:
+	cp pre-commit-docker.sh .git/hooks/pre-commit
+	chmod +x .git/hooks/pre-commit
+	@echo "Pre-commit hook installed successfully!"
+
+docker_precommit:
+	docker compose exec -T backend pre-commit run --all-files

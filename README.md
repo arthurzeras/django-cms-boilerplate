@@ -261,7 +261,7 @@ Media files integration with S3 or similar is not supported yet. Please feel fre
 
 ### If you are using Docker:
 
--   Not supported yet. Please feel free to contribute!
+-   On project root, run `make docker_precommit_setup` to enable the hook into your git repo, the file `pre-commit-docker.sh` will be copied to `.git/hooks/pre-commit`. The hook will run automatically for each commit **inside the backend container**.
 
 ### If you are not using Docker:
 
