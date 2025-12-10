@@ -105,6 +105,11 @@ runs:
       run: rm .gitignore
       shell: bash
 
+    - name: Fix import sorting (Django template processing removes blank lines)
+      run: poetry run ruff check --fix --select I .
+      working-directory: testproject
+      shell: bash
+
     - name: Lint with ruff
       run: poetry run ruff check .
       working-directory: testproject
